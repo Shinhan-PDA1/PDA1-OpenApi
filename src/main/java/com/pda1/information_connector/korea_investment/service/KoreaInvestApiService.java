@@ -1,6 +1,7 @@
 package com.pda1.information_connector.korea_investment.service;
 
 import com.pda1.information_connector.korea_investment.controller.response.ChartResponse;
+import com.pda1.information_connector.korea_investment.service.dto.Output2;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -21,7 +22,7 @@ public class KoreaInvestApiService {
         tokenCheck();
         System.out.println("asd : " + ACCESS_TOKEN);
         ChartResponse response = uriRequestService.getChartData(code, ACCESS_TOKEN);
-        System.out.println(response.getOutput1().getAcml_tr_pbmn());
+//        System.out.println(response.getOutput1().getAcml_tr_pbmn());
         return response;
     }
 }

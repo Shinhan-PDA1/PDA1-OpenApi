@@ -13,8 +13,8 @@ import java.util.Map;
 @Getter
 public class ChartResponse {
 
-    @JsonProperty("output1")
-    private Output1 output1;
+//    @JsonProperty("output1")
+//    private Output1 output1;
 
     @JsonProperty("output2")
     private List<Output2> output2;

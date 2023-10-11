@@ -12,7 +12,7 @@ public class Output2 {
     private String stck_bsop_date;
 
     @JsonProperty("stck_clpr")
-    private String stck_clpr;
+    private String close;
 
     @JsonProperty("stck_oprc")
     private String stck_oprc;
@@ -26,21 +26,21 @@ public class Output2 {
     @JsonProperty("acml_vol")
     private String acml_vol;
 
-    @JsonProperty("acml_tr_pbmn")
-    private String acml_tr_pbmn;
-
-    @JsonProperty("flng_cls_code")
-    private String flng_cls_code;
-
-    @JsonProperty("prtt_rate")
-    private String prtt_rate;
-
-    @JsonProperty("mod_yn")
-    private String mod_yn;
-
-    @JsonProperty("prdy_vrss_sign")
-    private String prdy_vrss_sign;
-
-    @JsonProperty("prdy_vrss")
-    private String prdy_vrss;
+//    @JsonProperty("acml_tr_pbmn")
+//    private String acml_tr_pbmn;
+//
+//    @JsonProperty("flng_cls_code")
+//    private String flng_cls_code;
+//
+//    @JsonProperty("prtt_rate")
+//    private String prtt_rate;
+//
+//    @JsonProperty("mod_yn")
+//    private String mod_yn;
+//
+//    @JsonProperty("prdy_vrss_sign")
+//    private String prdy_vrss_sign;
+//
+//    @JsonProperty("prdy_vrss")
+//    private String prdy_vrss;
 }

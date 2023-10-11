@@ -2,6 +2,7 @@ package com.pda1.information_connector.korea_investment.controller;
 
 import com.pda1.information_connector.korea_investment.controller.response.ChartResponse;
 import com.pda1.information_connector.korea_investment.service.KoreaInvestApiService;
+import com.pda1.information_connector.korea_investment.service.dto.Output2;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
