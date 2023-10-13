@@ -1,6 +1,8 @@
 package com.pda1.information_connector.shinhan.controller;
 
 import com.pda1.information_connector.korea_investment.controller.response.MainChartResponse;
+import com.pda1.information_connector.shinhan.controller.response.MainIssueResponse;
+import com.pda1.information_connector.shinhan.controller.response.MainPopularResponse;
 import com.pda1.information_connector.shinhan.controller.response.MainPortfolioResponse;
 import com.pda1.information_connector.shinhan.service.ShinhanApiService;
 import lombok.RequiredArgsConstructor;
@@ -23,6 +25,16 @@ public class ShinhanStockApiController {
     @GetMapping("/recommend/portfolio")
     public ResponseEntity<?> recommendFortfolio() {
         List<MainPortfolioResponse> response= shinhanApiService.getPortfolio();
+        return ResponseEntity.ok(response);
+    }
+    @GetMapping("/ranking/rising")
+    public ResponseEntity<?> rankingRising() {
+        List<MainPopularResponse> response= shinhanApiService.getPopular();
+        return ResponseEntity.ok(response);
+    }
+    @GetMapping("/ranking/issue")
+    public ResponseEntity<?> rankingIssue(@RequestParam(value = "query_type") String queryType) {
+        List<MainIssueResponse> response= shinhanApiService.getIssue(queryType);
         return ResponseEntity.ok(response);
     }
 }
