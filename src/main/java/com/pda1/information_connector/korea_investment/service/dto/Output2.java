@@ -12,7 +12,7 @@ public class Output2 {
     private String stck_bsop_date;
 
     @JsonProperty("stck_clpr")
-    private String close;
+    private String stck_clpr;
 
     @JsonProperty("stck_oprc")
     private String stck_oprc;
