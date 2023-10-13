@@ -1,4 +1,4 @@
-package com.pda1.information_connector.shinhan.controller.response;
+package com.pda1.information_connector.shinhan.service.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
@@ -6,7 +6,7 @@ import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
 @Getter
-public class IssueData {
+public class IssueDataDTO {
 
     @JsonProperty("rank")
     private int rank;
