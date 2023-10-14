@@ -95,4 +95,25 @@ public class ShinhanApiService {
         return mainResponse;
 
     }
+
+    public List<MainMarketResponse> getMarketIssue() {
+
+        List<MainMarketResponse> mainResponse = new ArrayList<>();
+
+        MarketResponse response = uriRequestService.getMarket();
+
+        response.getMarketDataBody().getList().stream().forEach(
+                data -> mainResponse.add(
+                        MainMarketResponse.builder()
+                                .date(data.getDate())
+                                .name(data.getName())
+                                .content(data.getContent())
+                                .url(data.getUrl())
+                                .build()
+                )
+        );
+
+        return mainResponse;
+
+    }
 }
