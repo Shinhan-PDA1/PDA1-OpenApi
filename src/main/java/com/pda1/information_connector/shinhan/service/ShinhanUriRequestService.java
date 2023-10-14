@@ -4,6 +4,7 @@ package com.pda1.information_connector.shinhan.service;
 import com.pda1.information_connector.shinhan.controller.response.DataBodyResponse;
 import com.pda1.information_connector.shinhan.controller.response.IssueResponse;
 import com.pda1.information_connector.shinhan.controller.response.PopularResponse;
+import com.pda1.information_connector.shinhan.controller.response.StrategyResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -55,5 +56,17 @@ public class ShinhanUriRequestService {
         HttpEntity httpEntity = new HttpEntity<>(headers);
 
         return new RestTemplate().exchange(uri, HttpMethod.GET, httpEntity, IssueResponse.class).getBody();
+    }
+
+    public StrategyResponse getStrategy() {
+        URI uri = uriBuilderService.buildStrategyUri();
+
+        HttpHeaders headers = new HttpHeaders();
+//        headers.setContentType(MediaType.APPLICATION_JSON);
+        headers.set("apiKey", "l7xxR7Fe0dP3i8KPZaPKpknI2vWrMeJfwDpk");
+
+        HttpEntity httpEntity = new HttpEntity<>(headers);
+
+        return new RestTemplate().exchange(uri, HttpMethod.GET, httpEntity, StrategyResponse.class).getBody();
     }
 }

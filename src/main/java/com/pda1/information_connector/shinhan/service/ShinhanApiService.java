@@ -62,7 +62,7 @@ public class ShinhanApiService {
 
         IssueResponse response = uriRequestService.getIssue(query);
 
-        response.getIssueDataBody().getList().stream().forEach(
+        response.getList().stream().forEach(
                 data -> mainResponse.add(
                         MainIssueResponse.builder()
                                 .stock_code(data.getStockCode())
@@ -73,5 +73,26 @@ public class ShinhanApiService {
         );
 
         return mainResponse;
+    }
+
+    public List<MainStrategyResponse> getStrategy() {
+
+        List<MainStrategyResponse> mainResponse = new ArrayList<>();
+
+        StrategyResponse response = uriRequestService.getStrategy();
+
+        response.getStrategyDataBody().getList().stream().forEach(
+                data -> mainResponse.add(
+                        MainStrategyResponse.builder()
+                                .date(data.getDate())
+                                .name(data.getName())
+                                .title(data.getTitle())
+                                .url(data.getUrl())
+                                .build()
+                )
+        );
+
+        return mainResponse;
+
     }
 }

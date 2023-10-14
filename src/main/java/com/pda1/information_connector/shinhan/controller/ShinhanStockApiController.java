@@ -4,6 +4,7 @@ import com.pda1.information_connector.korea_investment.controller.response.MainC
 import com.pda1.information_connector.shinhan.controller.response.MainIssueResponse;
 import com.pda1.information_connector.shinhan.controller.response.MainPopularResponse;
 import com.pda1.information_connector.shinhan.controller.response.MainPortfolioResponse;
+import com.pda1.information_connector.shinhan.controller.response.MainStrategyResponse;
 import com.pda1.information_connector.shinhan.service.ShinhanApiService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -33,8 +34,19 @@ public class ShinhanStockApiController {
         return ResponseEntity.ok(response);
     }
     @GetMapping("/ranking/issue")
-    public ResponseEntity<?> rankingIssue(@RequestParam(value = "query_type") String queryType) {
+    public ResponseEntity<?> rankingIssue(@RequestParam(name = "query_type") String queryType) {
         List<MainIssueResponse> response= shinhanApiService.getIssue(queryType);
         return ResponseEntity.ok(response);
     }
+
+    @GetMapping("/strategy/invest")
+    public ResponseEntity<?> strategyInvest() {
+        List<MainStrategyResponse> response= shinhanApiService.getStrategy();
+        return ResponseEntity.ok(response);
+    }
+//    @GetMapping("/ranking/issue")
+//    public ResponseEntity<?> rankingIssue(@RequestParam(value = "query_type") String queryType) {
+//        List<MainIssueResponse> response= shinhanApiService.getIssue(queryType);
+//        return ResponseEntity.ok(response);
+//    }
 }

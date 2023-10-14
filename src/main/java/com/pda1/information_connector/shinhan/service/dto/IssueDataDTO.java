@@ -14,7 +14,6 @@ public class IssueDataDTO {
     @JsonProperty("stbd_nm")
     private String stockName;
 
-
     @JsonProperty("stock_code")
     private String stockCode;
 
