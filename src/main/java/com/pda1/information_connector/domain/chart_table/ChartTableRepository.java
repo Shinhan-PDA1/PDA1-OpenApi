@@ -1,4 +1,6 @@
 package com.pda1.information_connector.domain.chart_table;
 
-public interface ChartTableRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface ChartTableRepository extends JpaRepository<ChartTable, Long> {
 }

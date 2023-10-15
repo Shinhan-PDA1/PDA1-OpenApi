@@ -1,5 +1,6 @@
 package com.pda1.information_connector.domain.chart_table;
 
+import com.pda1.information_connector.domain.stock_info.StockInformation;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -26,5 +27,9 @@ public class ChartTable {
     private String marketCapital;
     private String per;
     private String eps;
+
+    @OneToOne
+    @JoinColumn(name = "stock_id")
+    private StockInformation stockInformation;
 
 }

@@ -17,22 +17,22 @@ import java.text.ParseException;
 @RequestMapping("/api/v1/zootopia")
 public class DetailController {
 
-    private final DetailService detailService;
+//    private final DetailService detailService;
 
-    @GetMapping("/detail/chart")
-    public ResponseEntity<?> getChartInformation(@RequestParam String code) throws ParseException {
-
-        ClientChartResponse resposne = detailService.getChartInformation(code);
-
-        return ResponseEntity.ok(resposne);
-    }
-
-    @GetMapping("/detail/statements")
-    public ResponseEntity<?> getStatementInformation(@RequestParam String code) {
-
-        ClientStatementResponse resposne = detailService.getStatementInformation(code);
-
-        return ResponseEntity.ok(resposne);
-    }
+//    @GetMapping("/detail/chart")
+//    public ResponseEntity<?> getChartInformation(@RequestParam String code) throws ParseException {
+//
+//        ClientChartResponse resposne = detailService.getChartInformation(code);
+//
+//        return ResponseEntity.ok(resposne);
+//    }
+//
+//    @GetMapping("/detail/statements")
+//    public ResponseEntity<?> getStatementInformation(@RequestParam String code) {
+//
+//        ClientStatementResponse resposne = detailService.getStatementInformation(code);
+//
+//        return ResponseEntity.ok(resposne);
+//    }
 
 }

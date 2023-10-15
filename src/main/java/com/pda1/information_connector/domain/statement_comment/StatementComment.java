@@ -1,6 +1,7 @@
 package com.pda1.information_connector.domain.statement_comment;
 
 import com.pda1.information_connector.domain.BaseTimeEntity;
+import com.pda1.information_connector.domain.stock_info.StockInformation;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -22,4 +23,7 @@ public class StatementComment {
     @Column(columnDefinition = "LONGTEXT")
     private String comment;
 
+    @OneToOne
+    @JoinColumn(name = "stock_id")
+    private StockInformation stockInformation;
 }

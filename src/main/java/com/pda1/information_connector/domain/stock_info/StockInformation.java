@@ -34,17 +34,5 @@ public class StockInformation extends BaseTimeEntity {
     @OneToMany(mappedBy = "stockInformation", orphanRemoval = true)
     private List<Statement> statments = new ArrayList<>();
 
-    @OneToOne
-    @JoinColumn(name = "statement_comment_id")
-    private StatementComment statementComment;
-
-    @OneToOne
-    @JoinColumn(name = "chart_comment_id")
-    private ChartComment chartComment;
-
-    @OneToOne
-    @JoinColumn(name = "chart_table_id")
-    private ChartTable chartTable;
-
 
 }
