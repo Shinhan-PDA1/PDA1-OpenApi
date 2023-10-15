@@ -5,5 +5,5 @@ import lombok.*;
 
 @Getter
 @Builder
-public class MainDetailResponse {
+public class ClientDetailResponse {
 }
