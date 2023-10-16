@@ -1,6 +1,7 @@
 package com.pda1.information_connector.system.controller;
 
 import com.pda1.information_connector.system.controller.response.ClientChartResponse;
+import com.pda1.information_connector.system.controller.response.ClientDetailResponse;
 import com.pda1.information_connector.system.controller.response.ClientStatementResponse;
 import com.pda1.information_connector.system.service.DetailService;
 import lombok.RequiredArgsConstructor;
@@ -17,7 +18,16 @@ import java.text.ParseException;
 @RequestMapping("/api/v1/zootopia")
 public class DetailController {
 
-//    private final DetailService detailService;
+    private final DetailService detailService;
+
+    @GetMapping("/detail")
+    public ResponseEntity<?> getChartInformation(@RequestParam String code) throws Throwable {
+
+        ClientDetailResponse resposne = detailService.getDetailInformation(code);
+
+        return ResponseEntity.ok(resposne);
+    }
+
 
 //    @GetMapping("/detail/chart")
 //    public ResponseEntity<?> getChartInformation(@RequestParam String code) throws ParseException {

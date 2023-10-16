@@ -7,5 +7,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.Optional;
 
 public interface ChartCommentRepository extends JpaRepository<ChartComment,Long> {
-    //Optional findByStockInfortmation(StockInformation stockInformation);
+    Optional<ChartComment> findByStockInformation(StockInformation stockInformation);
 }
