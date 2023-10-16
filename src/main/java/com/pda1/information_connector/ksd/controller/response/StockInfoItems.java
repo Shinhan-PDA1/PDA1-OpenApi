@@ -6,7 +6,7 @@ import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
 @Getter
-public class StockInfoDataResponse {
+public class StockInfoItems {
     @JsonProperty("items")
-    private StockInfoDataBody stockInfoDataBody;
+    private StockInfoItem stockInfoItem;
 }

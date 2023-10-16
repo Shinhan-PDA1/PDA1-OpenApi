@@ -34,5 +34,8 @@ public class StockInformation extends BaseTimeEntity {
     @OneToMany(mappedBy = "stockInformation", orphanRemoval = true)
     private List<Statement> statments = new ArrayList<>();
 
-
+    public StockInformation(String korSecnNm, String shotnIsin) {
+        this.stockName = korSecnNm;
+        this.stockCode = shotnIsin;
+    }
 }

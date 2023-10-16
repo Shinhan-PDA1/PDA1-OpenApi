@@ -9,7 +9,7 @@ import java.util.List;
 
 @RequiredArgsConstructor
 @Getter
-public class StockInfoDataBody {
+public class StockInfoItem {
     @JsonProperty("item")
     private List<StockInfoDTO> item;
 }
