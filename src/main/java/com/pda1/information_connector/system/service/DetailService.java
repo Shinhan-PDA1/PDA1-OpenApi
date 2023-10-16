@@ -81,7 +81,7 @@ public class DetailService {
 
         return ClientDetailResponse.builder()
                 .mainChartResponse(chartResponse)
-                .chartCommentResposne(chartCommentResposne)
+                .chartCommentResponse(chartCommentResposne)
                 .statementResponse(statementResponse)
                 .statementCommentResponse(statementCommentResponse)
                 .chartTableResponse(chartTableResponse)
