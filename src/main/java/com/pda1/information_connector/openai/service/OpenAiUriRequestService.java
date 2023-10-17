@@ -49,4 +49,16 @@ public class OpenAiUriRequestService {
         return new RestTemplate().exchange(uri, HttpMethod.POST, httpEntity, ChatbotAnswerDto.class).getBody();
 
     }
+
+    public String getDataAnalysis(String jsonRequest) {
+
+        URI uri = uriBuilderService.buildDataAnalyseUri();
+
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON);
+
+        HttpEntity<String> httpEntity = new HttpEntity<>(jsonRequest, headers);
+        String jsonResponse = new RestTemplate().exchange(uri, HttpMethod.POST, httpEntity, String.class).getBody();
+        return jsonResponse;
+    }
 }

@@ -16,4 +16,20 @@ public class StockInfoDTO {
 
     @JsonProperty("mrktCtg")
     private String stockMarket;
+
+    @JsonProperty("hipr")
+    private String annualHigh;
+
+    @JsonProperty("lopr")
+    private String annualLow;
+
+    @JsonProperty("lstgStCnt")
+    private String numberOfStock;
+
+    @JsonProperty("mrktTotAmt")
+    private String totalAmount;
+
+    @JsonProperty("clpr")
+    private String PER;
+
 }

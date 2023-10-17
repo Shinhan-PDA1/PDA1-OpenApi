@@ -22,6 +22,7 @@ public class ChartTable {
     @Column
     private String annualHigh;
     private String annualLow;
+    private String stockMarket;
     private String capital;
     private String listedStockNumber;
     private String marketCapital;
@@ -32,4 +33,15 @@ public class ChartTable {
     @JoinColumn(name = "stock_id")
     private StockInformation stockInformation;
 
+    public ChartTable(String stockMarket, String annualHigh, String annualLow, String numberOfStock, String totalAmount, String per) {
+        this.stockMarket = stockMarket;
+        this.annualHigh = annualHigh;
+        this.annualLow = annualLow;
+        this.listedStockNumber = numberOfStock;
+        this.marketCapital = totalAmount;
+        this.per = per;
+
+        this.eps = "";
+        this.capital = Long.toString((Long.parseLong(totalAmount)*2));
+    }
 }
