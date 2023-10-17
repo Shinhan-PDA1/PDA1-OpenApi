@@ -40,7 +40,7 @@ public class DetailService {
         // 차트 해설 데이터
         StockInformation stockInformation = stockInformationRepository.findByStockCode(code).orElseThrow(()->new IllegalArgumentException("존재하지 않는 종목입니다."));
         ChartComment chartComment = chartCommentRepository.findByStockInformation(stockInformation).orElseThrow(()->new IllegalArgumentException("존재하지 않는 종목입니다."));
-        ChartCommentResponse chartCommentResposne = ChartCommentResponse.builder().chart_comment(chartComment.getComment()).build();
+        ChartCommentResponse chartCommentResposne = ChartCommentResponse.builder().chart_long_comment(chartComment.getLongComment()).chart_short_comment(chartComment.getShortComment()).build();
 
         // 재무제표 데이터
         Statement statement = statementRepository.findByStockInformation(stockInformation).orElseThrow(()->new IllegalArgumentException("존재하지 않는 종목입니다."));
@@ -65,7 +65,7 @@ public class DetailService {
                                                                 .build();
         // 재무제표 해설 데이터
         StatementComment statementComment = statementCommentRepository.findByStockInformation(stockInformation).orElseThrow(()->new IllegalArgumentException("존재하지 않는 종목입니다."));
-        StatementCommentResponse statementCommentResponse = StatementCommentResponse.builder().statement_comment(statementComment.getComment()).build();
+        StatementCommentResponse statementCommentResponse = StatementCommentResponse.builder().statement_long_comment(statementComment.getLongComment()).statement_short_comment(statementComment.getShortComment()).build();
 
         // 차트 표 데이터
         ChartTable chartTable = chartTableRepository.findByStockInformation(stockInformation).orElseThrow(()->new IllegalArgumentException("존재하지 않는 종목입니다."));
@@ -73,6 +73,7 @@ public class DetailService {
                                                                     .annual_high(chartTable.getAnnualHigh())
                                                                     .annual_low(chartTable.getAnnualLow())
                                                                     .capital(chartTable.getCapital())
+                                                                    .stock_market(chartTable.getStockMarket())
                                                                     .market_capital(chartTable.getMarketCapital())
                                                                     .listed_stock_number(chartTable.getListedStockNumber())
                                                                     .per(chartTable.getPer())
@@ -81,7 +82,7 @@ public class DetailService {
 
         return ClientDetailResponse.builder()
                 .mainChartResponse(chartResponse)
-                .chartCommentResposne(chartCommentResposne)
+                .chartCommentResponse(chartCommentResposne)
                 .statementResponse(statementResponse)
                 .statementCommentResponse(statementCommentResponse)
                 .chartTableResponse(chartTableResponse)
@@ -89,4 +90,10 @@ public class DetailService {
 
     }
 
+    public String getStockCode(String stockName) {
+
+        StockInformation stockInformation = stockInformationRepository.findByStockName(stockName).orElseThrow(()->new IllegalArgumentException("존재하지 않는 종목입니다."));
+
+        return stockInformation.getStockCode();
+    }
 }

@@ -27,22 +27,14 @@ public class DetailController {
 
         return ResponseEntity.ok(resposne);
     }
+    @GetMapping("/search")
+    public ResponseEntity<?> getStockCode(@RequestParam String stockName) {
+
+        String code = detailService.getStockCode(stockName);
+
+        return ResponseEntity.ok(code);
+    }
 
 
-//    @GetMapping("/detail/chart")
-//    public ResponseEntity<?> getChartInformation(@RequestParam String code) throws ParseException {
-//
-//        ClientChartResponse resposne = detailService.getChartInformation(code);
-//
-//        return ResponseEntity.ok(resposne);
-//    }
-//
-//    @GetMapping("/detail/statements")
-//    public ResponseEntity<?> getStatementInformation(@RequestParam String code) {
-//
-//        ClientStatementResponse resposne = detailService.getStatementInformation(code);
-//
-//        return ResponseEntity.ok(resposne);
-//    }
 
 }

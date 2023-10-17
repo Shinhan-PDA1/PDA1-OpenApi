@@ -8,6 +8,8 @@ spring:
     username: root
     password: root
   jpa:
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    open-in-view: false #osiv
     hibernate:
       ddl-auto: update
     properties:
@@ -15,7 +17,4 @@ spring:
         show_sql: true
         format_sql: false
         default_batch_fetch_size: 1000
-
-
-
 

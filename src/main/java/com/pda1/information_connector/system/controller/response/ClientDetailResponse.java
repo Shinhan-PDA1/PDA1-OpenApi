@@ -17,7 +17,7 @@ import lombok.Getter;
 public class ClientDetailResponse {
 
     private MainChartResponse mainChartResponse;
-    private ChartCommentResponse chartCommentResposne;
+    private ChartCommentResponse chartCommentResponse;
     private StatementResponse statementResponse;
     private StatementCommentResponse statementCommentResponse;
     private ChartTableResponse chartTableResponse;

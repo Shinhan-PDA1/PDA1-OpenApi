@@ -11,6 +11,7 @@ import lombok.RequiredArgsConstructor;
 @AllArgsConstructor
 public class StatementCommentResponse {
 
-    private String statement_comment;
+    private String statement_long_comment;
+    private String statement_short_comment;
 
 }
