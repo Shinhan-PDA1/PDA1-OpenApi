@@ -21,7 +21,10 @@ public class StatementComment {
     private Long statementCommentId;
 
     @Column(columnDefinition = "LONGTEXT")
-    private String comment;
+    private String longComment;
+
+    @Column(columnDefinition = "LONGTEXT")
+    private String shortComment;
 
     @OneToOne
     @JoinColumn(name = "stock_id")
