@@ -29,4 +29,9 @@ public class StatementComment {
     @OneToOne
     @JoinColumn(name = "stock_id")
     private StockInformation stockInformation;
+
+    public StatementComment(String statementShortComment, String statementLongComment) {
+        this.shortComment = statementShortComment;
+        this.longComment = statementLongComment;
+    }
 }
