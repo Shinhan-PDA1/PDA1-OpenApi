@@ -12,6 +12,5 @@ import lombok.NoArgsConstructor;
 public class ChatbotAnswerDto {
 
     private String answer;
-    private String processing_time;
 
 }

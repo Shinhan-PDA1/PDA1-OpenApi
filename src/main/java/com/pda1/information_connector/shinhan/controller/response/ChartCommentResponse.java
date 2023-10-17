@@ -11,5 +11,6 @@ import lombok.RequiredArgsConstructor;
 @AllArgsConstructor
 public class ChartCommentResponse {
 
-    private String chart_comment;
+    private String chart_long_comment;
+    private String chart_short_comment;
 }

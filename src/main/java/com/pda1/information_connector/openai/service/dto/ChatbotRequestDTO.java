@@ -10,12 +10,11 @@ import lombok.*;
 public class ChatbotRequestDTO {
 
     private Long userId;
-    private String userName;
-    private String requestType;
-    private String content;
+    private String type;
+    private String question;
 
-    public static ChatbotRequestDTO of(Long userId, String userName, String requestType, String content){
-        return new ChatbotRequestDTO(userId,userName,requestType,content);
+    public static ChatbotRequestDTO of(Long userId, String type, String question){
+        return new ChatbotRequestDTO(userId,type,question);
     }
 
 }

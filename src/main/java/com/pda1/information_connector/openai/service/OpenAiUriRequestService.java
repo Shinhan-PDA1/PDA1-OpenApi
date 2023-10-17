@@ -21,12 +21,12 @@ public class OpenAiUriRequestService {
 
     public final OpenAiUriBuilderService uriBuilderService;
 
-    public ChatbotAnswerDto getWordAnswer(ChatbotRequestDTO requestDTO) {
+    public ChatbotAnswerDto getWordAnswer(ChatbotRequestDTO data) {
 
         URI uri = uriBuilderService.buildWordUri();
 
-        String jsonRequest = "{" + "\"word\": " + "\"" + requestDTO.getContent() + "\"" + "}";
-        System.out.println(jsonRequest);
+        String jsonRequest = "{" + "\"word\": " + "\"" + data.getQuestion() + "\"" + "}";
+//        System.out.println(jsonRequest);
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
 
@@ -35,11 +35,11 @@ public class OpenAiUriRequestService {
         return new RestTemplate().exchange(uri, HttpMethod.POST, httpEntity, ChatbotAnswerDto.class).getBody();
 
     }
-    public ChatbotAnswerDto getQuestionAnswer(ChatbotRequestDTO requestDTO) {
+    public ChatbotAnswerDto getQuestionAnswer(ChatbotRequestDTO data) {
 
         URI uri = uriBuilderService.buildQuestionUri();
 
-        String jsonRequest = "{" + "\"question\": " + "\"" + requestDTO.getContent() + "\"" + "}";
+        String jsonRequest = "{" + "\"question\": " + "\"" + data.getQuestion() + "\"" + "}";
 
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
