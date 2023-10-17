@@ -18,7 +18,7 @@ public class ClientDetailResponse {
 
     private MainChartResponse mainChartResponse;
     private ChartCommentResponse chartCommentResponse;
-    private StatementResponse statementResponse;
+//    private StatementResponse statementResponse;
     private StatementCommentResponse statementCommentResponse;
     private ChartTableResponse chartTableResponse;
 

@@ -45,6 +45,7 @@ public class OpenAiService {
                 // Open Ai api 호출해서 답변 받아옴
                 ChatbotAnswerDto answer = openAiUriRequestService.getWordAnswer(request);
                 response.updateResponse(answer.getAnswer());
+                wordCacheRepository.save(WordCache.builder().word(request.getQuestion()).description(answer.getAnswer()).build());
             }
             else {  // 캐시에 데이터가 있으면
                 // 캐시 데이터 response에 담아줌
