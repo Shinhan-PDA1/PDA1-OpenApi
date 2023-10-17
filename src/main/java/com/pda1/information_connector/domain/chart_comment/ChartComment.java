@@ -28,4 +28,9 @@ public class ChartComment {
     @OneToOne
     @JoinColumn(name = "stock_id")
     private StockInformation stockInformation;
+
+    public ChartComment(String chartShortComment, String chartLongComment) {
+        this.shortComment = chartShortComment;
+        this.longComment = chartLongComment;
+    }
 }
