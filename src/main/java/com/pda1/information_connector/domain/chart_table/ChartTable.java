@@ -22,6 +22,7 @@ public class ChartTable {
     @Column
     private String annualHigh;
     private String annualLow;
+    private String stockMarket;
     private String capital;
     private String listedStockNumber;
     private String marketCapital;

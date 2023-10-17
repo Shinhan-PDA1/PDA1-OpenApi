@@ -60,3 +60,4 @@ public class OpenAiService {
         return response;
     }
 }
+

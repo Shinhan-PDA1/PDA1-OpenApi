@@ -13,6 +13,7 @@ public class ChartTableResponse {
 
     private String annual_high;
     private String annual_low;
+    private String stock_market;
     private String capital;
     private String listed_stock_number;
     private String market_capital;
