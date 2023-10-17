@@ -21,7 +21,6 @@ public class ChatLog extends BaseTimeEntity {
 
     @Column
     private Long userId;
-    private String userName;
     private String requestType;
     private String requestContent;
 
