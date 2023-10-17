@@ -15,20 +15,14 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/api/v1/chatbot")
+@RequestMapping("/api/v1/openai")
 public class OpenAiController {
 
     private final OpenAiService openAiService;
 
-    @PostMapping("/word")
-    public ResponseEntity<?> requestWord(@RequestBody ChatbotRequest request) {
-        OpenAiAnswerResponse response= openAiService.requestWord(request.toServiceDto());
-        return ResponseEntity.ok(response);
-    }
-
-    @PostMapping("/question")
-    public ResponseEntity<?> requestQuestion(@RequestBody ChatbotRequest request) {
-        OpenAiAnswerResponse response= openAiService.requestQuestion(request.toServiceDto());
+    @PostMapping("/chatbot")
+    public ResponseEntity<?> saveConversationAndGetAnswer(@RequestBody ChatbotRequest request) {
+        OpenAiAnswerResponse response= openAiService.saveConversationAndGetAnswer(request.toServiceDto());
         return ResponseEntity.ok(response);
     }
 

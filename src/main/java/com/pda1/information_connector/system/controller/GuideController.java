@@ -1,9 +1,9 @@
 package com.pda1.information_connector.system.controller;
 
-import com.pda1.information_connector.system.controller.response.ClientChartResponse;
 import com.pda1.information_connector.system.controller.response.ClientDetailResponse;
-import com.pda1.information_connector.system.controller.response.ClientStatementResponse;
+import com.pda1.information_connector.system.controller.response.GuideResponse;
 import com.pda1.information_connector.system.service.DetailService;
+import com.pda1.information_connector.system.service.GuideService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,21 +11,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.text.ParseException;
-
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api/v1/zootopia")
-public class DetailController {
+public class GuideController {
 
-    private final DetailService detailService;
+    private final GuideService guideService;
 
-    @GetMapping("/detail")
-    public ResponseEntity<?> getChartInformation(@RequestParam String code) throws Throwable {
+    @GetMapping("/guide")
+    public ResponseEntity<?> getGuideInformation(@RequestParam Long userId){
 
-        ClientDetailResponse resposne = detailService.getDetailInformation(code);
+        GuideResponse response = guideService.getGuideInformation(userId);
 
-        return ResponseEntity.ok(resposne);
+        return ResponseEntity.ok(response);
     }
 
 
