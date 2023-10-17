@@ -22,7 +22,6 @@ public class OpenAiController {
 
     @PostMapping("/chatbot")
     public ResponseEntity<?> saveConversationAndGetAnswer(@RequestBody ChatbotRequest request) {
-        System.out.println("@@@@@@");
         OpenAiAnswerResponse response= openAiService.saveConversationAndGetAnswer(request.toServiceDto());
         return ResponseEntity.ok(response);
     }
