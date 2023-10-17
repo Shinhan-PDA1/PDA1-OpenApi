@@ -27,6 +27,13 @@ public class DetailController {
 
         return ResponseEntity.ok(resposne);
     }
+    @GetMapping("/search")
+    public ResponseEntity<?> getStockCode(@RequestParam String stockName) {
+
+        String code = detailService.getStockCode(stockName);
+
+        return ResponseEntity.ok(code);
+    }
 
 
 

@@ -90,4 +90,10 @@ public class DetailService {
 
     }
 
+    public String getStockCode(String stockName) {
+
+        StockInformation stockInformation = stockInformationRepository.findByStockName(stockName).orElseThrow(()->new IllegalArgumentException("존재하지 않는 종목입니다."));
+
+        return stockInformation.getStockCode();
+    }
 }
