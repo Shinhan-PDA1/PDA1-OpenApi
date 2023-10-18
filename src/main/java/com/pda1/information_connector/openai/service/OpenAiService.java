@@ -2,8 +2,10 @@ package com.pda1.information_connector.openai.service;
 
 import com.pda1.information_connector.domain.chat_log.ChatLog;
 import com.pda1.information_connector.domain.chat_log.ChatLogRepository;
+import com.pda1.information_connector.domain.stock_info.StockInformationRepository;
 import com.pda1.information_connector.domain.word_cache.WordCache;
 import com.pda1.information_connector.domain.word_cache.WordCacheRepository;
+import com.pda1.information_connector.korea_investment.service.KoreaInvestApiService;
 import com.pda1.information_connector.openai.controller.response.OpenAiAnswerResponse;
 import com.pda1.information_connector.openai.service.dto.ChatbotAnswerDto;
 import com.pda1.information_connector.openai.service.dto.ChatbotRequestDTO;
@@ -28,6 +30,9 @@ public class OpenAiService {
     private final OpenAiUriRequestService openAiUriRequestService;
     private final ChatLogRepository chatLogRepository;
     private final WordCacheRepository wordCacheRepository;
+    private final KoreaInvestApiService koreaInvestApiService;
+    private final StockInformationRepository stockInformationRepository;
+
 
     public OpenAiAnswerResponse saveConversationAndGetAnswer(ChatbotRequestDTO request) {
 
@@ -95,6 +100,12 @@ public class OpenAiService {
         String jsonResponseOpenAI = new RestTemplate().exchange(finalUriForOpenAIAnalyse, HttpMethod.POST, httpEntity, String.class).getBody();
 
         return true;
+    }
+
+    public void updateOpenAiResponse() {
+
+
+
     }
 }
 
