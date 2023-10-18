@@ -14,8 +14,10 @@ import com.pda1.information_connector.shinhan.controller.response.ChartCommentRe
 import com.pda1.information_connector.shinhan.controller.response.ChartTableResponse;
 import com.pda1.information_connector.shinhan.controller.response.StatementCommentResponse;
 import com.pda1.information_connector.system.controller.response.ClientDetailResponse;
+import com.pda1.information_connector.system.controller.response.StockInfoResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import java.text.DecimalFormat;
 
 @Service
 @RequiredArgsConstructor
@@ -37,6 +39,21 @@ public class DetailService {
         StockInformation stockInformation = stockInformationRepository.findByStockCode(code).orElseThrow(()->new IllegalArgumentException("존재하지 않는 종목입니다."));
         ChartComment chartComment = chartCommentRepository.findByStockInformation(stockInformation).orElseThrow(()->new IllegalArgumentException("존재하지 않는 종목입니다."));
         ChartCommentResponse chartCommentResponse = ChartCommentResponse.builder().chart_long_comment(chartComment.getLongComment()).chart_short_comment(chartComment.getShortComment()).build();
+
+        double currPrice = Integer.parseInt(chartResponse.getChartData().get(0).getClose_price());
+        double pastPrice = Integer.parseInt(chartResponse.getChartData().get(1).getClose_price());
+
+        double percentageChange = ((currPrice - pastPrice) / pastPrice) * 100.0;
+
+        DecimalFormat df = new DecimalFormat("#.##");  // 셋째 자리까지 표시
+        String formattedResult = df.format(percentageChange);
+
+        StockInfoResponse stockInfoResponse = StockInfoResponse.builder()
+                .stockName(stockInformation.getStockName())
+                .price(chartResponse.getChartData().get(0).getClose_price())
+                .rate(formattedResult +"%")
+                .build();
+//        System.out.println(stockInfoResponse.getStockName() + " " + stockInfoResponse.getPrice() + " " + stockInfoResponse.getRate());
 
         // 재무제표 데이터
 //        Statement statement = statementRepository.findByStockInformation(stockInformation).orElseThrow(()->new IllegalArgumentException("존재하지 않는 종목입니다."));
@@ -79,7 +96,7 @@ public class DetailService {
         return ClientDetailResponse.builder()
                 .mainChartResponse(chartResponse)
                 .chartCommentResponse(chartCommentResponse)
-//                .statementResponse(statementResponse)
+                .stockInfoResponse(stockInfoResponse)
                 .statementCommentResponse(statementCommentResponse)
                 .chartTableResponse(chartTableResponse)
                 .build();
