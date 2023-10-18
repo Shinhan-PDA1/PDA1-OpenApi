@@ -23,9 +23,9 @@ public class DetailController {
     @GetMapping("/detail")
     public ResponseEntity<?> getChartInformation(@RequestParam String code) throws Throwable {
 
-        ClientDetailResponse resposne = detailService.getDetailInformation(code);
+        ClientDetailResponse response = detailService.getDetailInformation(code);
 
-        return ResponseEntity.ok(resposne);
+        return ResponseEntity.ok(response);
     }
     @GetMapping("/search")
     public ResponseEntity<?> getStockCode(@RequestParam String stockName) {

@@ -59,7 +59,6 @@ public class ShinhanApiService {
     public List<MainIssueResponse> getIssue(String query) {
 
         List<MainIssueResponse> mainResponse = new ArrayList<>();
-
         IssueResponse response = uriRequestService.getIssue(query);
 
         response.getList().stream().forEach(

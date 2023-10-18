@@ -4,8 +4,6 @@ import com.pda1.information_connector.domain.chart_comment.ChartComment;
 import com.pda1.information_connector.domain.chart_comment.ChartCommentRepository;
 import com.pda1.information_connector.domain.chart_table.ChartTable;
 import com.pda1.information_connector.domain.chart_table.ChartTableRepository;
-import com.pda1.information_connector.domain.statement.Statement;
-import com.pda1.information_connector.domain.statement.StatementRepository;
 import com.pda1.information_connector.domain.statement_comment.StatementComment;
 import com.pda1.information_connector.domain.statement_comment.StatementCommentRepository;
 import com.pda1.information_connector.domain.stock_info.StockInformation;

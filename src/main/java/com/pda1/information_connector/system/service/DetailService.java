@@ -36,7 +36,7 @@ public class DetailService {
         // 차트 해설 데이터
         StockInformation stockInformation = stockInformationRepository.findByStockCode(code).orElseThrow(()->new IllegalArgumentException("존재하지 않는 종목입니다."));
         ChartComment chartComment = chartCommentRepository.findByStockInformation(stockInformation).orElseThrow(()->new IllegalArgumentException("존재하지 않는 종목입니다."));
-        ChartCommentResponse chartCommentResposne = ChartCommentResponse.builder().chart_long_comment(chartComment.getLongComment()).chart_short_comment(chartComment.getShortComment()).build();
+        ChartCommentResponse chartCommentResponse = ChartCommentResponse.builder().chart_long_comment(chartComment.getLongComment()).chart_short_comment(chartComment.getShortComment()).build();
 
         // 재무제표 데이터
 //        Statement statement = statementRepository.findByStockInformation(stockInformation).orElseThrow(()->new IllegalArgumentException("존재하지 않는 종목입니다."));
@@ -78,7 +78,7 @@ public class DetailService {
 
         return ClientDetailResponse.builder()
                 .mainChartResponse(chartResponse)
-                .chartCommentResponse(chartCommentResposne)
+                .chartCommentResponse(chartCommentResponse)
 //                .statementResponse(statementResponse)
                 .statementCommentResponse(statementCommentResponse)
                 .chartTableResponse(chartTableResponse)
