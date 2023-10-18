@@ -1,6 +1,7 @@
 package com.pda1.information_connector.openai.service;
 
 import lombok.RequiredArgsConstructor;
+import lombok.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.util.UriComponentsBuilder;
 
@@ -10,9 +11,10 @@ import java.net.URI;
 @RequiredArgsConstructor
 public class OpenAiUriBuilderService {
 
-    private static final String WORD_EXPLAIN_URL = "http://localhost:5000/api/v1/openai/word";
-    private static final String QUESTION_EXPLAIN_URL = "http://localhost:5000/api/v1/openai/question";
-    private static final String DATA_ANALYSE_URL = "http://localhost:5000/api/v1/openai/analysis";
+
+    private static final String WORD_EXPLAIN_URL = "jootopia-openai-service.team-1.svc.cluster.local/api/v1/openai/word";
+    private static final String QUESTION_EXPLAIN_URL = "jootopia-openai-service.team-1.svc.cluster.local/api/v1/openai/question";
+    private static final String DATA_ANALYSE_URL = "jootopia-openai-service.team-1.svc.cluster.local/api/v1/openai/analysis";
 
     public URI buildQuestionUri() {
         UriComponentsBuilder uriBuilder = UriComponentsBuilder.fromHttpUrl(QUESTION_EXPLAIN_URL);
