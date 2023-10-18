@@ -19,6 +19,8 @@ public class WordCache {
 
     @Column
     private String word;
+
+    @Column(columnDefinition = "LONGTEXT")
     private String description;
 
 }
