@@ -102,10 +102,6 @@ public class OpenAiService {
         return true;
     }
 
-    public void updateOpenAiResponse() {
 
-
-
-    }
 }
 
