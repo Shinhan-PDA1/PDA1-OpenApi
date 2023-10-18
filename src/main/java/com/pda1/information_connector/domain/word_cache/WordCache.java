@@ -1,6 +1,5 @@
 package com.pda1.information_connector.domain.word_cache;
 
-import com.pda1.information_connector.domain.statement.Statement;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -22,6 +21,8 @@ public class WordCache {
 
     @Column
     private String word;
+
+    @Column(columnDefinition = "LONGTEXT")
     private String description;
 
 }
