@@ -12,9 +12,9 @@ import java.net.URI;
 public class OpenAiUriBuilderService {
 
 
-    private static final String WORD_EXPLAIN_URL = "jootopia-openai-service.team-1.svc.cluster.local/api/v1/openai/word";
-    private static final String QUESTION_EXPLAIN_URL = "jootopia-openai-service.team-1.svc.cluster.local/api/v1/openai/question";
-    private static final String DATA_ANALYSE_URL = "jootopia-openai-service.team-1.svc.cluster.local/api/v1/openai/analysis";
+    private static final String WORD_EXPLAIN_URL = "jootopia-openai.shinhansec-pda.net/api/v1/openai/word";
+    private static final String QUESTION_EXPLAIN_URL = "jootopia-openai.shinhansec-pda.net/api/v1/openai/question";
+    private static final String DATA_ANALYSE_URL = "jootopia-openai.shinhansec-pda.net/api/v1/openai/analysis";
 
     public URI buildQuestionUri() {
         UriComponentsBuilder uriBuilder = UriComponentsBuilder.fromHttpUrl(QUESTION_EXPLAIN_URL);
